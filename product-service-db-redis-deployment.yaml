@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: product-service-db-redis
+  name: product-service-db-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: product-service-db-redis
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/sales-order-system: "true"
+        io.kompose.service: product-service-db-redis
+    spec:
+      containers:
+        - args:
+            - redis-server
+            - --protected-mode
+            - "no"
+          image: redis
+          name: product-service-redis
+          ports:
+            - containerPort: 6379
+          resources: {}
+      restartPolicy: Always
+status: {}

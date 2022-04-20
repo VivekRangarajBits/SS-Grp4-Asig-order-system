@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  COMPOSE_PROJECT_NAME: sales-order-system-2
+  SPRING_PROFILES_ACTIVE: dev
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: customer-service-env
+  name: env
