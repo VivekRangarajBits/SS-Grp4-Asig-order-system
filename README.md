@@ -1,5 +1,5 @@
 
-### Backend
+### Microservice
 
 The backend is broken up into multiple smaller fine grained size microservices.
 Each business functionality is broken into their own 'domain'. A technique of context boundaries from DDD (Domain Driven Design) is used to come to this conclusion:
